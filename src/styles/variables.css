@@ -11,3 +11,6 @@ $helvetica : "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
 $open-sans : "Open Sans", $helvetica;
 
 $base-font : $open-sans;
+
+/* Settings */
+$container-width : 600px;

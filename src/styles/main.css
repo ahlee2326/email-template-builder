@@ -5,15 +5,15 @@
 ------------------------------------- */
 * {
   font-family: $base-font;
-  font-size: 100%;
-  line-height: 1.6em;
+  font-size: 1em;
+  line-height: 1.4em;
   margin: 0;
   padding: 0;
 }
 
 img {
-  max-width: 600px;
-  width: 100%;
+  display: block;
+  max-width: $container-width;
 }
 
 body {
@@ -23,11 +23,17 @@ body {
   height: 100%;
   width: 100% !important;
 }
+
+html {
+  font-size: 14px;
+}
+
 /* -------------------------------------
     ELEMENTS
 ------------------------------------- */
 a {
   color: $blue;
+  text-decoration: none;
 }
 
 .btn-primary {
@@ -69,6 +75,13 @@ a {
 }
 
 /* -------------------------------------
+    HEADER
+------------------------------------- */
+table.header-wrap {
+  width: 100%;
+}
+
+/* -------------------------------------
     BODY
 ------------------------------------- */
 table.body-wrap {
@@ -78,7 +91,7 @@ table.body-wrap {
 
 table.body-wrap .container {
   background-color: white;
-  border: 1px solid #f0f0f0;
+  border: 1px solid $border-line;
 }
 
 /* -------------------------------------
@@ -92,7 +105,6 @@ table.footer-wrap {
 .footer-wrap .container p {
   color: $gray;
   font-size: 12px;
-  
 }
 
 table.footer-wrap a {
@@ -107,7 +119,7 @@ h2,
 h3 {
   color: black;
   font-family: $base-font;
-  font-weight: 200;
+  font-weight: lighter;
   line-height: 1.2em;
   margin: 40px 0 10px;
 }
@@ -146,7 +158,7 @@ ol li {
   clear: both !important;
   display: block !important;
   margin: 0 auto !important;
-  max-width: 600px !important;
+  max-width: $container-width !important;
 }
 
 /* Set the padding on the td rather than the div for Outlook compatibility */
@@ -158,10 +170,11 @@ ol li {
 .content {
   display: block;
   margin: 0 auto;
-  max-width: 600px;
+  max-width: $container-width;
 }
 
 /* Let's make sure tables in the content area are 100% wide */
 .content table {
+  border-collapse: collapse;
   width: 100%;
 }

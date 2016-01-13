@@ -1,5 +1,7 @@
 {% extends "base.nj" %}
 
+{% block title %}Welcome!{% endblock %}
+
 {% block body %}
 <p>Hi {{ welcome.name }},</p>
 <p>Sometimes all you want is to send a simple HTML email with a basic design.</p>

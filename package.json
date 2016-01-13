@@ -1,7 +1,7 @@
 {
   "name": "email-template-builder",
-  "version": "0.0.1",
-  "description": "This email template builder utilizes Gulp, Nunjucks] and Rucksack to simplify the process of designing an email template.",
+  "version": "0.1.0",
+  "description": "This email template builder utilizes Gulp, Nunjucks and Rucksack to simplify the process of designing an email template.",
   "scripts": {
     "start": "gulp"
   },
@@ -27,10 +27,13 @@
     "browser-sync": "^2.11.0",
     "gulp": "git+https://git@github.com/gulpjs/gulp.git#4.0",
     "gulp-data": "^1.2.1",
+    "gulp-imagemin": "^2.4.0",
     "gulp-inline-css": "^3.0.0",
+    "gulp-newer": "^1.1.0",
     "gulp-nunjucks-render": "^1.1.0",
     "gulp-postcss": "^6.0.1",
     "postcss-import": "^7.1.3",
+    "postcss-nested": "^1.0.0",
     "postcss-simple-vars": "^1.2.0",
     "rucksack-css": "^0.8.5"
   }
