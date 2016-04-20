@@ -19,12 +19,6 @@ const paths = {
   templates: 'src/templates',
 };
 
-nunjucksRender
-  .nunjucks
-  .configure(['src/templates/'], {
-    watch: true,
-  });
-
 gulp.task('build:images', () => {
   return gulp.src(`${paths.templates}/**/*.{gif,jpg,png}`)
     .pipe(newer(paths.dist))
@@ -40,7 +34,12 @@ gulp.task('build:html', () => {
     '!src/templates/*.nj',
   ])
     .pipe(data(dataJson))
-    .pipe(nunjucksRender())
+    .pipe(nunjucksRender({
+      path: 'src/templates/',
+      envOptions: {
+        watch: true,
+      },
+    }))
     .pipe(gulp.dest(paths.dist))
     .pipe(inlineCss())
     .pipe(gulp.dest(paths.dist))
