@@ -36,14 +36,10 @@ gulp.task('build:html', () => {
     .pipe(data(dataJson))
     .pipe(nunjucksRender({
       path: 'src/templates/',
-      envOptions: {
-        watch: true,
-      },
     }))
     .pipe(gulp.dest(paths.dist))
     .pipe(inlineCss())
-    .pipe(gulp.dest(paths.dist))
-    .pipe(browserSync.reload({ stream: true }));
+    .pipe(gulp.dest(paths.dist));
 });
 
 gulp.task('build:styles', () => {
@@ -73,10 +69,12 @@ gulp.task('watch', () => {
   gulp.watch([
     `${paths.styles}/**/*.css`,
     `${paths.templates}/**/*.css`,
-  ], gulp.series('build'));
-  gulp.watch(`${paths.templates}/**/*.nj`, gulp.series('build'));
-  gulp.watch(`${paths.images}/**/*.{gif,jpg,png}`, gulp.series('build'));
+  ], gulp.series('build:styles', 'reload'));
+  gulp.watch(`${paths.templates}/**/*.nj`, gulp.series('build:html', 'reload'));
+  gulp.watch(`${paths.images}/**/*.{gif,jpg,png}`, gulp.series('build:images', 'reload'));
 });
+
+gulp.task('reload', browserSync.reload);
 
 gulp.task('serve', gulp.series(
   'build',
